@@ -48,7 +48,7 @@ if uploaded_file:
     llm = ChatOpenAI(
     model="gpt-4.1",
     base_url="https://models.github.ai/inference/v1",
-    openai_api_key="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",
+    openai_api_key="ghp_XXXXXXXXXXXXXXXXXXXXXXXXXX",
     temperature=0.7
 )
 
