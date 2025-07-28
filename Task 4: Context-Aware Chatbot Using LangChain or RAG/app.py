@@ -5,14 +5,14 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
-from langchain.llms import OpenAI as LangchainOpenAI
+from langchain.chat_models import ChatOpenAI
 from openai import OpenAI
 import tempfile
 import os
 
 # Configure OpenAI GitHub proxy client
 client = OpenAI(
-    api_key="ghp_XXXXXXXXXXXXXXX",  # Replace with your GitHub token actual removed for security reason
+    api_key="ghp_XXXXXXXXXXXXXXXXXXXXX",  # Replace with your GitHub token removed for security
     base_url="https://models.github.ai/inference/v1"
 )
 
@@ -45,11 +45,13 @@ if uploaded_file:
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
     # LangChain-compatible LLM using proxy
-    llm = LangchainOpenAI(
-        openai_api_key=client.api_key,
-        base_url=client.base_url,
-        model_name="gpt-4.1"
-    )
+    llm = ChatOpenAI(
+    model="gpt-4.1",
+    base_url="https://models.github.ai/inference/v1",
+    openai_api_key="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",
+    temperature=0.7
+)
+
 
     # Create Conversational RAG chain
     qa_chain = ConversationalRetrievalChain.from_llm(
