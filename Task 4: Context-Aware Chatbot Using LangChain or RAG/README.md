@@ -32,19 +32,19 @@ A conversational chatbot powered by **LangChain**, **HuggingFace embeddings**, a
 ```bash
 git clone https://github.com/Learner354/AI-ML-Engineering-Advanced-Internship-Tasks/Task 4: Context-Aware Chatbot Using LangChain or RAG/chatbot.py
 cd pdf-chatbot
-Install dependencies
+---
+## Install dependencies
 
-bash
-Copy
-Edit
+```bash
 pip install -r requirements.txt
-Run the app
+---
+## Run the app
 
 bash
 Copy
 Edit
 streamlit run app.py
-🔑 Configuration
+## 🔑 Configuration
 Make sure you have a GitHub-proxy OpenAI API key. In the code, set:
 
 ```python
@@ -53,6 +53,7 @@ client = OpenAI(
     api_key="ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXX",
     base_url="https://models.github.ai/inference/v1"
 )
+---
 
 ## How It Works
 - User uploads a PDF via Streamlit.
